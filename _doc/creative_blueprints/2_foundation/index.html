@@ -1,40 +1,127 @@
 <style>
-  .mode-landscape .sl-foundation-layout { display: flex; flex-direction: row; align-items: stretch; min-height: 100%; }
-  .mode-landscape .sl-content-panel { width: 55%; padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
-  .mode-landscape .sl-visual-panel { width: 45%; min-height: 0; }
-  .mode-portrait .sl-foundation-layout { display: flex; flex-direction: column; min-height: 100%; }
-  .mode-portrait .sl-content-panel { padding: 2rem 1.5rem; }
-  .mode-portrait .sl-visual-panel { min-height: 280px; }
+  .mode-landscape .sl-root { flex-direction: row; }
+  .mode-portrait .sl-root { flex-direction: column; }
+  .mode-landscape .sl-problem { width: 50%; }
+  .mode-landscape .sl-solution { width: 50%; }
+  .mode-portrait .sl-problem { width: 100%; }
+  .mode-portrait .sl-solution { width: 100%; }
 </style>
 <section class="w-full h-full overflow-auto bg-white">
-  <div class="sl-foundation-layout">
-    <div class="sl-content-panel">
-      <div class="flex items-center justify-between mb-4">
-        <span class="inline-block text-xs font-semibold tracking-widest uppercase" style="color:#2563eb;">Foundation</span>
-        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 border rounded-full" style="background-color:#2563eb; border-color:#2563eb30;">
-          <span class="text-xs font-semibold" style="color:#ffffff;">Validated</span>
+  <div class="sl-root flex h-full">
 
-        </span>
-      </div>
-      <h1 class="text-3xl font-bold text-slate-900 leading-tight mb-8">Manual attendance tracking and inconsistent SOP enforcement</h1>
-      <div class="space-y-5">
-        <div class="border-l-4 pl-4 relative" style="border-color:#F43F5E;">
-          <h2 class="text-sm font-semibold uppercase tracking-wide mb-1" style="color:#E11D48;">The Problem</h2>
-          <p class="text-slate-700 leading-relaxed text-sm">HR teams spend hours managing attendance sheets, updating scattered policy documents, and manually verifying employee compliance. Employees lack visibility into their own attendance status and SLA compliance, leading to confusion and missed deadlines.</p>
+    <!-- Left: Problem panel -->
+    <div class="sl-problem bg-slate-900 flex flex-col justify-between p-12">
+      <div>
+        <div class="flex items-center gap-2 mb-5">
+          <span class="w-1 h-5 rounded-full bg-rose-400"></span>
+          <span class="text-xs font-bold uppercase tracking-widest text-rose-400">The Problem</span>
         </div>
-        <div class="border-l-4 pl-4 relative" style="border-color:#2563eb;">
-          <h2 class="text-sm font-semibold uppercase tracking-wide mb-1" style="color:#2563eb;">The Solution</h2>
-          <p class="text-slate-700 leading-relaxed text-sm">Organizations struggle with manual attendance processes, scattered documentation of HR policies, and lack of real-time visibility into employee compliance with standard operating procedures and SLAs.</p>
+        <h2 class="text-3xl font-bold text-white leading-snug mb-6">
+          HR teams are buried<br/>in manual work.
+        </h2>
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-full bg-rose-900 flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-3 h-3 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed">Attendance tracked on paper or spreadsheets — error-prone and slow to reconcile</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-full bg-rose-900 flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-3 h-3 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed">SOPs and rules scattered across emails, drives, and printed binders — no single source of truth</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-full bg-rose-900 flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-3 h-3 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed">No real-time SLA compliance view — violations surface only after damage is done</p>
+          </div>
         </div>
-        <div class="border-l-4 border-sky-500 pl-4 relative"><h2 class="text-sm font-semibold text-sky-600 uppercase tracking-wide mb-1">Target Audience</h2><p class="text-slate-700 leading-relaxed text-sm">Mid-market organizations with 50-500 employees seeking to digitize HR operations</p></div>
-        <div class="border-l-4 border-amber-500 pl-4 relative"><h2 class="text-sm font-semibold text-amber-600 uppercase tracking-wide mb-1">Personal Motivation</h2><p class="text-slate-700 leading-relaxed text-sm">Eliminate manual attendance friction and create transparency in compliance tracking</p></div>
       </div>
-      <div class="mt-6 flex flex-wrap gap-2"><span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-medium rounded-full">Attendance Management</span><span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-medium rounded-full">HR Operations</span><span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-medium rounded-full">Facial Recognition</span><span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-medium rounded-full">SLA Tracking</span><span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-medium rounded-full">Policy Management</span></div>
-      <div class="mt-8"><data-attribution /></div>
+
+      <!-- Visual accent -->
+      <div class="bg-slate-800 rounded-2xl p-5 mt-6">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-8 h-8 rounded-lg bg-rose-900 flex items-center justify-center">
+            <svg class="w-4 h-4 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <p class="text-slate-300 text-xs font-medium">Hours wasted per week on manual reconciliation</p>
+        </div>
+        <div class="flex gap-1">
+          <div class="h-2 flex-1 rounded-full bg-rose-700"></div>
+          <div class="h-2 flex-1 rounded-full bg-rose-700"></div>
+          <div class="h-2 flex-1 rounded-full bg-rose-700"></div>
+          <div class="h-2 flex-1 rounded-full bg-rose-700"></div>
+          <div class="h-2 flex-1 rounded-full bg-rose-900 opacity-40"></div>
+        </div>
+        <p class="text-rose-400 text-xs font-bold mt-1.5">~4–8 hrs / week lost per HR staff</p>
+      </div>
     </div>
-    <div class="sl-visual-panel relative">
-      <img src="http://localhost:8001/common/image-generation?prompt=frustrated+HR+staff+managing+paper+attendance+records+and+spreadsheets&amp;keyspace=xl2mrshh&amp;user_id=4444" alt="visual" class="w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent opacity-40"></div>
+
+    <!-- Right: Solution panel -->
+    <div class="sl-solution bg-indigo-600 flex flex-col justify-between p-12">
+      <div>
+        <div class="flex items-center gap-2 mb-5">
+          <span class="w-1 h-5 rounded-full bg-indigo-200"></span>
+          <span class="text-xs font-bold uppercase tracking-widest text-indigo-200">The Solution</span>
+        </div>
+        <h2 class="text-3xl font-bold text-white leading-snug mb-6">
+          One portal.<br/>Two roles.<br/>Full visibility.
+        </h2>
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-full bg-indigo-500 flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <p class="text-indigo-100 text-sm leading-relaxed">Employees check in with a face photo — no cards, no sheets, no disputes</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-full bg-indigo-500 flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <p class="text-indigo-100 text-sm leading-relaxed">HR uploads SOPs once — employees always see the current version</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-full bg-indigo-500 flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <p class="text-indigo-100 text-sm leading-relaxed">Live SLA dashboard flags attendance compliance instantly — no chasing, no guesswork</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats row -->
+      <div class="grid grid-cols-3 gap-3 mt-6">
+        <div class="bg-indigo-700 rounded-xl p-3 text-center">
+          <p class="text-white font-bold text-2xl">2</p>
+          <p class="text-indigo-300 text-xs mt-1">Roles</p>
+        </div>
+        <div class="bg-indigo-700 rounded-xl p-3 text-center">
+          <p class="text-white font-bold text-2xl">1</p>
+          <p class="text-indigo-300 text-xs mt-1">Portal</p>
+        </div>
+        <div class="bg-indigo-700 rounded-xl p-3 text-center">
+          <p class="text-white font-bold text-sm leading-tight">Real-time</p>
+          <p class="text-indigo-300 text-xs mt-1">SLA View</p>
+        </div>
+      </div>
     </div>
+
   </div>
 </section>
