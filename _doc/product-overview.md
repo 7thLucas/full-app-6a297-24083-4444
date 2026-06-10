@@ -1,0 +1,1 @@
+make me simple web app for HR to upload SOP/rules regarding employees. have two roles (employee and HR).  employees will upload form their face for attendance and will show dashboard regarding SLA if employee valid attend or not. simple ui.
