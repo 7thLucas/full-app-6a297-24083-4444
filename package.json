@@ -20,6 +20,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@qb/email": "file:./app/modules/email",
+    "@radix-ui/react-label": "^2.1.9",
+    "@radix-ui/react-slot": "^1.2.5",
     "@react-router/express": "^7.0.0",
     "@react-router/node": "^7.0.0",
     "@typegoose/typegoose": "^12.20.0",
@@ -37,8 +40,12 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router": "^7.0.0",
-    "tailwind-merge": "^3.5.0",
-    "tsx": "^4.20.6"
+    "tailwind-merge": "^3.6.0",
+    "tsx": "^4.20.6",
+    "@qb/authentication": "file:./app/modules/authentication",
+    "@qb/uploader": "file:./app/modules/uploader",
+    "@qb/agentic": "file:./app/modules/agentic",
+    "@qb/judgment": "file:./app/modules/judgment"
   },
   "devDependencies": {
     "@react-router/dev": "^7.0.0",
