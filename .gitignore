@@ -1,0 +1,21 @@
+node_modules
+build
+/.cache
+.react-router
+
+# envs
+.env*
+!.env.example
+package-lock.json
+
+# QB agentic per-deck context (deck_id, keyspace, conversation_id)
+.qb/
+
+# App Preview injected files (auto-generated, do not commit)
+.skaffold.lock
+.skaffold/
+.skaffold.pid
+k8s/
+skaffold.yaml
+Dockerfile.dev
+.docker/
