@@ -15,32 +15,29 @@ export type TBrandColor = {
 export type TDefaultConfigurableData = {
   appName: string;
   logoUrl: string;
+  tagline?: string;
   brandColor: TBrandColor;
-  // Mirror new schema fields here. Example:
-  //   maxItemsPerPage?: number;
-  //   enableNotifications?: boolean;
-  //   featuredCategories?: string[];
+  slaThreshold?: number;
+  checkInWindowStart?: string;
+  checkInWindowEnd?: string;
+  welcomeMessage?: string;
+  footerText?: string;
+  enableSopAccess?: boolean;
 };
 
 export const defaultConfigurablesData: TDefaultConfigurableData = {
-  appName: "FILL_APP_NAME_HERE",
+  appName: "PresenceHQ",
   logoUrl: "FILL_LOGO_URL_HERE",
+  tagline: "Attendance & SOP Management",
   brandColor: {
-    primary: "FILL_PRIMARY_COLOR_HERE",
-    secondary: "FILL_SECONDARY_COLOR_HERE",
-    accent: "FILL_ACCENT_COLOR_HERE",
+    primary: "#4F46E5",
+    secondary: "#6366F1",
+    accent: "#818CF8",
   },
-  // ─────────────────────────────────────────────────────────────────────
-  // Add new field defaults here. See RULES.md §5 for per-type shape.
-  // Required branding fields → use the FILL_X_HERE placeholder pattern.
-  // Optional/typed defaults → real value with a "// fill it here" comment:
-  //
-  //   maxItemsPerPage: 12,                     // fill it here
-  //   enableNotifications: true,               // fill it here
-  //   featuredCategories: [],                  // fill it here
-  //   defaultLanguage: "en",                   // must match enum options
-  //   launchDate: "2025-01-01T00:00:00.000Z",  // ISO-8601
-  //   heroImage: "",                           // resolved URL after upload
-  //   galleryImages: [],                       // array of resolved URLs
-  // ─────────────────────────────────────────────────────────────────────
+  slaThreshold: 80,         // fill it here — % attendance required for Valid
+  checkInWindowStart: "08:00", // fill it here
+  checkInWindowEnd: "10:00",   // fill it here
+  welcomeMessage: "Welcome to PresenceHQ. Upload your face photo to check in for today.", // fill it here
+  footerText: "PresenceHQ — HR Attendance & SOP Management", // fill it here
+  enableSopAccess: true,    // fill it here
 };

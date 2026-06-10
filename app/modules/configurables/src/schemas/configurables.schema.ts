@@ -46,6 +46,12 @@ export const configurableSchemas: ConfigurableSchemas = {
       label: "Logo URL",
     },
     {
+      fieldName: "tagline",
+      type: "string",
+      required: false,
+      label: "Tagline",
+    },
+    {
       fieldName: "brandColor",
       type: "object",
       required: true,
@@ -70,6 +76,44 @@ export const configurableSchemas: ConfigurableSchemas = {
           label: "Accent",
         },
       ],
+    },
+    {
+      fieldName: "slaThreshold",
+      type: "number",
+      required: false,
+      label: "Attendance SLA Threshold (%)",
+      min: 0,
+      max: 100,
+    },
+    {
+      fieldName: "checkInWindowStart",
+      type: "string",
+      required: false,
+      label: "Check-In Window Start (e.g. 08:00)",
+    },
+    {
+      fieldName: "checkInWindowEnd",
+      type: "string",
+      required: false,
+      label: "Check-In Window End (e.g. 10:00)",
+    },
+    {
+      fieldName: "welcomeMessage",
+      type: "string",
+      required: false,
+      label: "Employee Welcome Message",
+    },
+    {
+      fieldName: "footerText",
+      type: "string",
+      required: false,
+      label: "Footer Text",
+    },
+    {
+      fieldName: "enableSopAccess",
+      type: "boolean",
+      required: false,
+      label: "Allow employees to view SOPs",
     },
   ],
 };

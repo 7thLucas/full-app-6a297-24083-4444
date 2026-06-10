@@ -2,6 +2,7 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { readdir } from "node:fs/promises";
 import { createLogger } from "~/lib/logger";
+import { seedPresenceHQ } from "~/presence-hq/seeds/presence-hq.seed";
 
 const logger = createLogger("Seed");
 
@@ -101,6 +102,10 @@ export async function runSeeds(): Promise<void> {
       logger.info(`Running seed ${seed.exportName} from ${path.relative(process.cwd(), seed.filePath)}`);
       await seed.run();
     }
+
+    // Run PresenceHQ domain seeds (lives outside app/modules/, not auto-discovered)
+    logger.info("Running PresenceHQ domain seeds...");
+    await seedPresenceHQ();
 
     logger.info("✅ All seed operations completed successfully");
   } catch (error) {

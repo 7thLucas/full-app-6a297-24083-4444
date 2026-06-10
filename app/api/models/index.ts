@@ -2,6 +2,9 @@ import path from "node:path";
 import { readdir } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
 import { createLogger } from "~/lib/logger";
+// PresenceHQ domain models — explicitly imported since they live outside app/modules/
+import "~/presence-hq/models/attendance.model";
+import "~/presence-hq/models/sop.model";
 
 const logger = createLogger("Models");
 const modelFilePattern = /\.model\.(ts|tsx|js|mjs|cjs)$/;
