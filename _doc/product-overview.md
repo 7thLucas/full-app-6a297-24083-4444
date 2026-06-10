@@ -1,7 +1,7 @@
 # Product Overview
 
 ## Product Name
-HR Attendance Portal *(working title — pending user confirmation)*
+PresenceHQ
 
 ## What It Is
 A role-based web application for HR teams to centrally manage company SOPs and rules, track employee attendance via face photo upload, and monitor SLA compliance through a live dashboard — all in a clean, simple UI.
