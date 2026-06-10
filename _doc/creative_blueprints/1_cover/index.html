@@ -1,39 +1,74 @@
 <style>
-  .mode-landscape .sl-cover-layout { display: flex; flex-direction: row; align-items: stretch; min-height: 100%; }
-  .mode-landscape .sl-content-panel { width: 55%; display: flex; flex-direction: column; justify-content: center; }
-  .mode-landscape .sl-image-panel { width: 45%; min-height: 0; }
-  .mode-portrait .sl-cover-layout { display: flex; flex-direction: column; min-height: 100%; }
-  .mode-portrait .sl-content-panel { flex: 1; display: flex; flex-direction: column; justify-content: center; padding-bottom: 1.5rem; }
-  .mode-portrait .sl-image-panel { min-height: 280px; flex-shrink: 0; }
+  .mode-landscape .sl-root { flex-direction: row; }
+  .mode-portrait .sl-root { flex-direction: column; }
+  .mode-landscape .sl-left { width: 52%; }
+  .mode-landscape .sl-right { width: 48%; }
+  .mode-portrait .sl-left { width: 100%; flex: 0 0 auto; }
+  .mode-portrait .sl-right { width: 100%; flex: 1; }
 </style>
 <section class="w-full h-full overflow-auto bg-white">
-  <div class="sl-cover-layout h-full">
-    <div class="sl-content-panel px-10 py-12">
-      <div class="flex flex-col justify-between h-full">
-        <div>
-          <p class="text-sm font-medium tracking-widest uppercase mb-6" style="color:#2563eb;">HR Manager / Employee</p>
-          <h1 class="text-5xl font-bold text-slate-900 leading-tight mb-6">Employee Attendance & SOP Management</h1>
-          <p class="text-xl text-slate-600 leading-relaxed max-w-md mb-6">A simple web application for HR to manage SOPs and rules while enabling employees to check in via facial recognition and track their attendance against SLAs.</p>
-          <div class="inline-flex items-center gap-3 border rounded-lg px-4 py-3" style="background-color:#1e40af; border-color:#2563eb40;">
-            <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background-color:#2563eb;">
-              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+  <div class="sl-root flex h-full">
+
+    <!-- Left: Content column -->
+    <div class="sl-left flex flex-col justify-between p-12 bg-white">
+
+      <!-- Top badge -->
+      <div>
+        <span class="inline-flex items-center gap-1.5 bg-indigo-50 text-indigo-700 text-xs font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full border border-indigo-100">
+          <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
+            <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/>
+          </svg>
+          HR Management Platform
+        </span>
+      </div>
+
+      <!-- Headline + tagline -->
+      <div>
+        <h1 class="text-5xl font-extrabold text-slate-900 leading-tight mb-5">
+          Your People,<br/>
+          <span class="text-indigo-600">Present &amp;<br/>Accountable.</span>
+        </h1>
+        <p class="text-base text-slate-500 leading-relaxed max-w-xs">
+          Face-based attendance and centralised SOP management — HR clarity without the paperwork chase.
+        </p>
+      </div>
+
+      <!-- Attribution -->
+      <div>
+        <data-attribution />
+      </div>
+
+    </div>
+
+    <!-- Right: Visual column -->
+    <div class="sl-right relative overflow-hidden bg-indigo-50">
+      <img
+        src="https://api-stag.qb-deck.quantumbyte.ai/common/image-generation?prompt=modern%20HR%20dashboard%20interface%20with%20facial%20recognition%20attendance%20tracking%2C%20clean%20professional%20office%20environment%2C%20monitors%20showing%20employee%20attendance%20data%2C%20indigo%20blue%20color%20palette%2C%20corporate%20software%20UI"
+        alt="HR Attendance Dashboard"
+        class="w-full h-full object-cover"
+      />
+      <!-- Floating stat card -->
+      <div class="absolute bottom-8 left-6 right-6">
+        <div class="bg-white rounded-2xl p-4 shadow-xl border border-slate-100">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
               </svg>
             </div>
-            <span class="text-sm font-medium px-1" style="color:#ffffff;">Core vision: Simplified productivity</span>
-
+            <div>
+              <p class="text-xs text-slate-400 font-medium">SLA Compliance Today</p>
+              <p class="text-sm font-bold text-slate-800">94% Attendance Valid</p>
+            </div>
+            <div class="ml-auto flex items-center gap-1">
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span class="text-emerald-600 font-semibold text-xs">Live</span>
+            </div>
           </div>
         </div>
-        <div class="mt-auto pt-8">
-          <data-attribution />
-        </div>
       </div>
     </div>
-    <div class="sl-image-panel relative overflow-hidden">
-      <div class="absolute inset-0" style="background:linear-gradient(135deg, #2563eb, #2563eb20);"></div>
-      <div class="absolute inset-0 flex items-center justify-center p-8">
-        <img src="http://localhost:8001/common/image-generation?prompt=modern+office+dashboard+with+employees+checking+in+facial+recognition+blue+interface&amp;keyspace=xl2mrshh&amp;user_id=4444" alt="cover" class="max-w-full max-h-full object-contain drop-shadow-2xl rounded-2xl" />
-      </div>
-    </div>
+
   </div>
 </section>
