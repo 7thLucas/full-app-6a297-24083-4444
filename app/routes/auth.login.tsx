@@ -6,6 +6,7 @@ import { UserRole } from "~/modules/authentication/authentication.types";
 import { Form, Link, useActionData, useNavigation } from "react-router";
 import { useConfigurables } from "~/modules/configurables";
 import { Building2 } from "lucide-react";
+import { useRef } from "react";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const user = getUserFromRequest(request);
@@ -39,15 +40,32 @@ interface ActionData {
   error?: string;
 }
 
+const DEMO_ACCOUNTS = {
+  admin: { email: "admin@example.com", password: "ChangeMe123!" },
+  employee: { email: "alice@example.com", password: "Employee123!" },
+} as const;
+
 export default function LoginRoute() {
   const actionData = useActionData<ActionData>();
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
   const { config, loading } = useConfigurables();
+  const formRef = useRef<HTMLFormElement>(null);
 
   const appName = loading ? "PresenceHQ" : (config?.appName ?? "PresenceHQ");
   const tagline = loading ? "Attendance & SOP Management" : (config?.tagline ?? "Attendance & SOP Management");
   const primaryColor = loading ? "#4F46E5" : (config?.brandColor?.primary ?? "#4F46E5");
+
+  function loginAsDemo(account: keyof typeof DEMO_ACCOUNTS) {
+    const form = formRef.current;
+    if (!form) return;
+    const emailInput = form.elements.namedItem("email") as HTMLInputElement;
+    const passwordInput = form.elements.namedItem("password") as HTMLInputElement;
+    emailInput.value = DEMO_ACCOUNTS[account].email;
+    passwordInput.value = DEMO_ACCOUNTS[account].password;
+    // Use a small timeout so React sees the DOM values before submission
+    setTimeout(() => form.requestSubmit(), 0);
+  }
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-slate-50 px-4 py-12">
@@ -69,7 +87,7 @@ export default function LoginRoute() {
           <h2 className="mb-1 text-lg font-semibold text-slate-900">Sign in</h2>
           <p className="mb-6 text-sm text-slate-500">Enter your credentials to continue</p>
 
-          <Form method="post" className="space-y-4">
+          <Form ref={formRef} method="post" className="space-y-4">
             {actionData?.error && (
               <div className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-700">
                 {actionData.error}
@@ -122,14 +140,32 @@ export default function LoginRoute() {
               {isSubmitting ? "Signing in…" : "Sign in"}
             </button>
           </Form>
-        </div>
 
-        {/* Demo info */}
-        <div className="mt-4 rounded-xl border border-slate-200 bg-white p-4 text-xs text-slate-500">
-          <p className="mb-1.5 font-medium text-slate-700">Demo Credentials</p>
-          <div className="space-y-1">
-            <p><span className="font-medium text-slate-600">HR Admin:</span> admin@example.com / ChangeMe123!</p>
-            <p><span className="font-medium text-slate-600">Employee:</span> alice@example.com / Employee123!</p>
+          {/* Demo account separator */}
+          <div className="mt-6 flex items-center gap-3">
+            <hr className="flex-1 border-slate-200" />
+            <span className="text-xs text-slate-400 whitespace-nowrap">or try a demo account</span>
+            <hr className="flex-1 border-slate-200" />
+          </div>
+
+          {/* Demo login buttons */}
+          <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+            <button
+              type="button"
+              onClick={() => loginAsDemo("admin")}
+              disabled={isSubmitting}
+              className="flex-1 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2.5 text-xs font-medium text-slate-700 transition-colors hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-700 disabled:opacity-50"
+            >
+              Login as HR Admin
+            </button>
+            <button
+              type="button"
+              onClick={() => loginAsDemo("employee")}
+              disabled={isSubmitting}
+              className="flex-1 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2.5 text-xs font-medium text-slate-700 transition-colors hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-700 disabled:opacity-50"
+            >
+              Login as Employee
+            </button>
           </div>
         </div>
 
