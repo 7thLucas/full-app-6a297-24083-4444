@@ -1,0 +1,141 @@
+<style>
+  .mode-landscape .sl-root { flex-direction: row; }
+  .mode-portrait .sl-root { flex-direction: column; }
+  .mode-landscape .sl-left { width: 44%; }
+  .mode-landscape .sl-right { width: 56%; }
+  .mode-portrait .sl-left { width: 100%; flex: 0 0 auto; }
+  .mode-portrait .sl-right { width: 100%; flex: 1; }
+</style>
+<section class="w-full h-full overflow-auto bg-white">
+  <div class="sl-root flex h-full">
+
+    <!-- Left: Identity + operation definitions -->
+    <div class="sl-left flex flex-col justify-between px-12 pt-10 pb-10 border-r border-slate-100">
+
+      <div class="flex flex-col gap-5">
+        <!-- Label + headline -->
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest text-indigo-500 mb-2">North Star Metric</p>
+          <h2 class="text-3xl font-extrabold text-slate-900 leading-tight mb-3">
+            Weekly Verified<br/>Operations
+          </h2>
+          <p class="text-slate-500 text-sm leading-relaxed">
+            The number PresenceHQ lives by — real operations completed by real users in the app each week.
+          </p>
+        </div>
+
+        <!-- Verified operation types -->
+        <div class="space-y-3">
+          <!-- Primary operation -->
+          <div class="flex items-start gap-3 bg-indigo-50 border border-indigo-100 rounded-xl p-4">
+            <div class="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.069A1 1 0 0121 8.82V15.18a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-0.5">
+                <p class="text-sm font-bold text-slate-800">Daily Attendance Check-In</p>
+                <span class="bg-indigo-100 text-indigo-700 text-xs font-semibold px-2 py-0.5 rounded-full">Primary</span>
+              </div>
+              <p class="text-xs text-slate-500">Employee submits a face photo — attendance recorded and SLA-evaluated in the app</p>
+            </div>
+          </div>
+          <!-- Secondary operation -->
+          <div class="flex items-start gap-3 bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <div class="w-9 h-9 rounded-xl bg-slate-700 flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-0.5">
+                <p class="text-sm font-bold text-slate-800">SOP Published</p>
+                <span class="bg-slate-200 text-slate-600 text-xs font-semibold px-2 py-0.5 rounded-full">Secondary</span>
+              </div>
+              <p class="text-xs text-slate-500">HR publishes a rule or SOP — live and accessible to all employees immediately</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Framing label -->
+      <div class="flex items-center gap-2 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3">
+        <svg class="w-4 h-4 text-amber-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <p class="text-amber-700 text-xs font-semibold">Projected impact — based on your inputs</p>
+      </div>
+
+    </div>
+
+    <!-- Right: WVO formula + value derivation + totals -->
+    <div class="sl-right flex flex-col px-10 pt-10 pb-10 gap-4">
+
+      <!-- WVO calculation -->
+      <div class="bg-slate-900 rounded-2xl p-5">
+        <p class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-4">WVO Formula — Attendance Check-Ins</p>
+        <div class="space-y-2.5">
+          <div class="flex items-center justify-between">
+            <span class="text-slate-300 text-sm">Employees in your team</span>
+            <span class="bg-amber-900/60 border border-amber-500/40 text-amber-300 text-xs font-semibold px-2.5 py-1 rounded-full">Assumption — adjust: 20</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-slate-300 text-sm">Check-ins per working day</span>
+            <span class="text-white font-bold text-sm">× 1</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-slate-300 text-sm">Working days per week</span>
+            <span class="text-white font-bold text-sm">× 5</span>
+          </div>
+          <div class="border-t border-slate-700 pt-3 flex items-center justify-between">
+            <div>
+              <p class="text-white font-bold text-sm">Weekly Verified Operations</p>
+              <p class="text-slate-500 text-xs mt-0.5">20 × 1 × 5 = 100 ops / week</p>
+            </div>
+            <span class="text-4xl font-extrabold text-indigo-400">100</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Value per operation -->
+      <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-5">
+        <p class="text-xs font-bold uppercase tracking-widest text-emerald-700 mb-3">Value per Operation</p>
+        <div class="space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-slate-600 text-sm">Time saved vs. paper reconciliation</span>
+            <span class="bg-amber-100 border border-amber-300 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded-full">Assumption: 10 min</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-slate-600 text-sm">HR staff hourly cost</span>
+            <span class="bg-amber-100 border border-amber-300 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded-full">Assumption: $15 / hr</span>
+          </div>
+          <div class="border-t border-emerald-200 pt-2 flex items-center justify-between">
+            <div>
+              <p class="text-slate-700 text-sm font-semibold">Value per check-in</p>
+              <p class="text-slate-400 text-xs mt-0.5">10 min × ($15 ÷ 60 min) = $2.50</p>
+            </div>
+            <span class="text-emerald-700 font-extrabold text-xl">$2.50</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Total projected value -->
+      <div class="bg-indigo-600 rounded-2xl p-5 flex items-center gap-6 flex-1">
+        <div class="flex-1">
+          <p class="text-xs font-bold uppercase tracking-widest text-indigo-300 mb-2">Total Projected Value</p>
+          <p class="text-indigo-100 text-xs leading-relaxed">
+            100 ops/wk × $2.50 = <strong class="text-white">$250 / week</strong><br/>
+            $250 × 52 weeks = <strong class="text-white">$13,000 / year</strong>
+          </p>
+        </div>
+        <div class="text-right shrink-0">
+          <p class="text-4xl font-extrabold text-white leading-none">$13,000</p>
+          <p class="text-indigo-300 text-sm mt-1 font-medium">per year</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
