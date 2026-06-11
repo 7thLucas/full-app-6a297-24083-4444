@@ -6,7 +6,7 @@ import { UserRole } from "~/modules/authentication/authentication.types";
 import { Form, Link, useActionData, useNavigation } from "react-router";
 import { useConfigurables } from "~/modules/configurables";
 import { Building2 } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const user = getUserFromRequest(request);
@@ -51,20 +51,18 @@ export default function LoginRoute() {
   const isSubmitting = navigation.state === "submitting";
   const { config, loading } = useConfigurables();
   const formRef = useRef<HTMLFormElement>(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const appName = loading ? "PresenceHQ" : (config?.appName ?? "PresenceHQ");
   const tagline = loading ? "Attendance & SOP Management" : (config?.tagline ?? "Attendance & SOP Management");
   const primaryColor = loading ? "#4F46E5" : (config?.brandColor?.primary ?? "#4F46E5");
 
   function loginAsDemo(account: keyof typeof DEMO_ACCOUNTS) {
-    const form = formRef.current;
-    if (!form) return;
-    const emailInput = form.elements.namedItem("email") as HTMLInputElement;
-    const passwordInput = form.elements.namedItem("password") as HTMLInputElement;
-    emailInput.value = DEMO_ACCOUNTS[account].email;
-    passwordInput.value = DEMO_ACCOUNTS[account].password;
-    // Use a small timeout so React sees the DOM values before submission
-    setTimeout(() => form.requestSubmit(), 0);
+    setEmail(DEMO_ACCOUNTS[account].email);
+    setPassword(DEMO_ACCOUNTS[account].password);
+    // Submit after React re-renders with the new controlled values
+    setTimeout(() => formRef.current?.requestSubmit(), 50);
   }
 
   return (
@@ -105,6 +103,8 @@ export default function LoginRoute() {
                 placeholder="you@example.com"
                 required
                 autoComplete="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-100 transition-colors"
               />
             </div>
@@ -127,6 +127,8 @@ export default function LoginRoute() {
                 type="password"
                 required
                 autoComplete="current-password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-100 transition-colors"
               />
             </div>
